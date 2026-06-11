@@ -72,7 +72,7 @@ python modes/standalone.py
 
 #### 2. Fusion 360 Add-In 模式
 
-1. 在 Fusion 360 中，点击 `工具` > `Add-Ins` > `My Add-Ins`
+1. 在 Fusion 360 中，��击 `工具` > `Add-Ins` > `My Add-Ins`
 2. 选择 `modes/addin.py` 文件
 3. 点击运行
 4. 在 Fusion 360 界面中输入自然语言需求
@@ -134,7 +134,7 @@ python modes/standalone.py
 - 错误恢复机制
 
 #### `model_generator.py`
-- 根据命令生��� 3D 模型
+- 根据命令生成 3D 模型
 - 支持基础几何体（盒子、圆柱、球体等）
 - 高级特征（倒角、圆角、孔洞等）
 
@@ -161,6 +161,9 @@ python -m pytest tests/
 
 # 运行特定测试
 python -m pytest tests/test_gpt_agent.py
+
+# 运行带覆盖率的测试
+python -m pytest tests/ --cov=src/
 ```
 
 ## 文件说明
@@ -183,7 +186,7 @@ A: 在 `config.py` 中更新 `FUSION_API_VERSION`，或修改 `fusion_client.py`
 A: 目前支持基础几何体创建、参数化草图、特征操作。更多功能持续开发中。
 
 ### Q: 如何自定义 AI 提示词？
-A: 在 `gpt_agent.py` 中修改 `SYSTEM_PROMPT` 或 `create_prompt()` 方法。
+A: 在 `gpt_agent.py` 中修改 `SYSTEM_PROMPT` 或 `create_prompt()` 方��。
 
 ## 许可证
 

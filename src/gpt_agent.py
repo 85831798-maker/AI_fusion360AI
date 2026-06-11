@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 class GPTAgent:
     """GPT 智能体
     
-    用于理解自然语言设计���求，生成结构化的 CAD 操作命令。
+    用于理解自然语言设计需求，生成结构化的 CAD 操作命令。
     """
 
     def __init__(self, api_key: str = OPENAI_API_KEY, model: str = OPENAI_MODEL):

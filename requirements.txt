@@ -2,8 +2,7 @@
 python-dotenv==1.0.0
 requests==2.31.0
 
-# OpenAI
-openai>=1.0.0
+# DeepSeek / HTTP
 
 # Fusion 360 API (需要从 Autodesk 官方获取)
 # adsk-core-python==1.0.0

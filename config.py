@@ -5,10 +5,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ============================================
-# OpenAI 配置
+# DeepSeek 配置（替代 OpenAI）
 # ============================================
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "your-api-key-here")
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4")  # gpt-4 或 gpt-3.5-turbo
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "your-deepseek-api-key-here")
+DEEPSEEK_API_URL = os.getenv("DEEPSEEK_API_URL", "https://api.deepseek.example.com")
+DEEPSEEK_MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-1")
+DEEPSEEK_TEMPERATURE = float(os.getenv("DEEPSEEK_TEMPERATURE", "0.7"))
+DEEPSEEK_MAX_TOKENS = int(os.getenv("DEEPSEEK_MAX_TOKENS", "2000"))
+
+# 保留旧的 OpenAI 配置（兼容）
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "")
 OPENAI_TEMPERATURE = float(os.getenv("OPENAI_TEMPERATURE", "0.7"))
 OPENAI_MAX_TOKENS = int(os.getenv("OPENAI_MAX_TOKENS", "2000"))
 
@@ -31,7 +38,7 @@ LOG_FILE = os.getenv("LOG_FILE", "logs/fusion360_ai.log")
 # ============================================
 DEBUG_MODE = os.getenv("DEBUG_MODE", "False").lower() == "true"
 APP_NAME = "Fusion 360 AI Agent"
-APP_VERSION = "0.1.0"
+APP_VERSION = "0.1.1"
 
 # ============================================
 # 默认参数
@@ -46,7 +53,7 @@ AI_SYSTEM_PROMPT = """
 你是一个 Fusion 360 CAD 设计专家助手。
 
 你的职责是：
-1. 理解用户的自然语言设计需���
+1. 理解用户的自然语言设计需求
 2. 将需求转换为具体的设计参数
 3. 生成 Fusion 360 API 调用命令
 4. 确保设计符合用户的期望

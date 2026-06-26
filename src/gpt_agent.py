@@ -147,7 +147,14 @@ class GPTAgent:
 
     def suggest_design_improvements(self, current_design: Dict[str, Any]) -> List[str]:
         """基于当前设计提出改进建议（会向 DeepSeek 请求改进建议）"""
-        prompt = f"根据以下当前设计，提出 3-5 条改进建议：\n\n当前设计: {json.dumps(current_design, indent=2)}\n\n请以 JSON 格式返回建议列表：{'{"suggestions": []}'}"
+        # 避免在 f-string 中直接嵌套未转义的大括号，先准备一个 JSON 模板字符串
+        template = '{"suggestions": []}'
+        prompt = (
+            "根据以下当前设计，提出 3-5 条改进建议：\n\n"
+            f"当前设计: {json.dumps(current_design, indent=2)}\n\n"
+            "请以 JSON 格式返回建议列表："
+            + template
+        )
         payload = {
             "model": self.model,
             "prompt": prompt,
